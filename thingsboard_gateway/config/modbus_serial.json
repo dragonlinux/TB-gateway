@@ -4,23 +4,54 @@
     "type": "serial",
     "method": "rtu",
     "port": "/dev/ttyUSB0",
-    "baudrate": 19200,
+    "baudrate": 9600,
     "timeout": 35,
     "devices": [
       {
         "unitId": 1,
-        "deviceName": "Temp Sensor",
-        "attributesPollPeriod": 5000,
+        "deviceName": "室内温度传感器",
+        "attributesPollPeriod": 1000,
         "timeseriesPollPeriod": 5000,
-        "sendDataOnlyOnChange": true,
+        "sendDataOnlyOnChange": false,
         "attributes": [
           {
+            "tag": "温度值",
+            "type": "16int",
             "byteOrder": "BIG",
-            "tag": "test",
-            "type": "long",
-            "functionCode": 4,
+            "functionCode": 3,
             "registerCount": 1,
-            "address": 4
+            "address": 1
+          },
+          {
+            "tag": "湿度值",
+            "type": "16int",
+            "byteOrder": "BIG",
+            "functionCode": 3,
+            "registerCount": 1,
+            "address": 0
+          }
+        ]
+      },
+      {
+        "unitId": 2,
+        "deviceName": "ADAM4150",
+        "attributesPollPeriod": 1000,
+        "timeseriesPollPeriod": 5000,
+        "sendDataOnlyOnChange": false,
+        "attributes": [
+          {
+            "tag": "Pin3",
+            "type": "bits",
+            "functionCode": 1,
+            "registerCount": 1,
+            "address": 19
+          },
+          {
+            "tag": "Pin5",
+            "type": "bits",
+            "functionCode": 1,
+            "registerCount": 1,
+            "address": 21
           }
         ]
       }

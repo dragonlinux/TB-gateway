@@ -1,10 +1,10 @@
 thingsboard:
-  host: demo.thingsboard.io
+  host: 192.168.1.71
   port: 1883
-  remoteShell: false
-  remoteConfiguration: false
+  remoteShell: true
+  remoteConfiguration: true
   security:
-    accessToken: PUT_YOUR_GW_ACCESS_TOKEN_HERE
+    accessToken: FNlWT2XebNPeKZcJbHyO
   qos: 1
 storage:
   type: memory
@@ -16,20 +16,20 @@ storage:
 #  max_read_records_count: 10
 #  max_records_per_file: 10000
 connectors:
-  -
-    name: MQTT Broker Connector
-    type: mqtt
-    configuration: mqtt.json
+#  -
+#    name: MQTT Broker Connector
+#    type: mqtt
+#    configuration: mqtt.json
 
 #  -
 #    name: Modbus Connector
 #    type: modbus
 #    configuration: modbus.json
 #
-#  -
-#    name: Modbus Connector
-#    type: modbus
-#    configuration: modbus_serial.json
+  -
+    name: Modbus Connector
+    type: modbus
+    configuration: modbus_serial.json
 #
 #  -
 #    name: OPC-UA Connector

@@ -29,8 +29,9 @@ connectors:
   -
     name: Modbus Connector
     type: modbus
-#    configuration: modbus_serial.json
-    configuration: modbus_serial-4150-rpc-only-control.json
+    configuration: modbus_serial.json
+#    configuration: modbus_serial-4150-rpc.json
+#    configuration: modbus_serial-4150-rpc-only-control.json
 #
 #  -
 #    name: OPC-UA Connector

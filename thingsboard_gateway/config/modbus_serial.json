@@ -5,13 +5,13 @@
     "method": "rtu",
     "port": "/dev/ttyUSB0",
     "baudrate": 9600,
-    "timeout": 1,
+    "timeout": 5,
     "devices": [
       {
         "unitId": 1,
         "deviceName": "室内温度传感器",
-        "attributesPollPeriod": 11000,
-        "timeseriesPollPeriod": 5000,
+        "attributesPollPeriod": 10000,
+        "timeseriesPollPeriod": 50000,
         "sendDataOnlyOnChange": false,
         "attributes": [
           {
@@ -35,22 +35,22 @@
       {
         "unitId": 2,
         "deviceName": "ADAM4150",
-        "attributesPollPeriod": 1000,
-        "timeseriesPollPeriod": 1000,
+        "attributesPollPeriod": 10000,
+        "timeseriesPollPeriod": 10000,
         "sendDataOnlyOnChange": false,
-        "attributes": [
+        "rpc": [
           {
-            "tag": "Pin3",
+            "tag": "setValuePin3",
             "type": "bits",
-            "functionCode": 1,
-            "registerCount": 1,
+            "functionCode": 5,
+            "objectsCount": 1,
             "address": 19
           },
           {
-            "tag": "Pin5",
+            "tag": "setValuePin5",
             "type": "bits",
-            "functionCode": 1,
-            "registerCount": 1,
+            "functionCode": 5,
+            "objectsCount": 1,
             "address": 21
           }
         ]

@@ -291,18 +291,18 @@ class ModbusConnector(Connector, threading.Thread):
         function_code = config.get('functionCode')
         result = None
 
-        # print("====>", config["payload"][0])
-
-        if config["payload"][0] == True:
-            config["payload"] = 1
-        else:
-            config["payload"] = 0
-
         if function_code in (1, 2, 3, 4):
             result = self.__available_functions[function_code](address=config["address"],
                                                                count=config.get("objectsCount", config.get("registersCount",  config.get("registerCount", 1))),
                                                                unit=unit_id)
         elif function_code in (5, 6, 15, 16):
+            try:
+                if config["payload"][0] == True:
+                    config["payload"] = 1
+                else:
+                    config["payload"] = 0
+            except Exception as e:
+                log.exception(e)
             result = self.__available_functions[function_code](address=config["address"],
                                                                value=config["payload"],
                                                                unit=unit_id)

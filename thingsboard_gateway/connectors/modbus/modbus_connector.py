@@ -290,6 +290,14 @@ class ModbusConnector(Connector, threading.Thread):
     def __function_to_device(self, config, unit_id):
         function_code = config.get('functionCode')
         result = None
+
+        # print("====>", config["payload"][0])
+
+        if config["payload"][0] == True:
+            config["payload"] = 1
+        else:
+            config["payload"] = 0
+
         if function_code in (1, 2, 3, 4):
             result = self.__available_functions[function_code](address=config["address"],
                                                                count=config.get("objectsCount", config.get("registersCount",  config.get("registerCount", 1))),
@@ -309,6 +317,7 @@ class ModbusConnector(Connector, threading.Thread):
         try:
             if content.get("device") is not None:
 
+                print("server_side_rpc_handler:", self.__devices[content["device"]]["config"]["rpc"])
                 log.debug("Modbus connector received rpc request for %s with content: %s", content["device"], content)
                 if isinstance(self.__devices[content["device"]]["config"]["rpc"], dict):
                     rpc_command_config = self.__devices[content["device"]]["config"]["rpc"].get(content["data"]["method"])

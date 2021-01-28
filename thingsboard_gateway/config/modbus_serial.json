@@ -5,7 +5,7 @@
     "method": "rtu",
     "port": "/dev/ttyUSB0",
     "baudrate": 9600,
-    "timeout": 35,
+    "timeout": 1,
     "devices": [
       {
         "unitId": 1,
@@ -35,8 +35,8 @@
       {
         "unitId": 2,
         "deviceName": "ADAM4150",
-        "attributesPollPeriod": 11000,
-        "timeseriesPollPeriod": 5000,
+        "attributesPollPeriod": 1000,
+        "timeseriesPollPeriod": 1000,
         "sendDataOnlyOnChange": false,
         "attributes": [
           {

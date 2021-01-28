@@ -10,7 +10,7 @@
       {
         "unitId": 1,
         "deviceName": "室内温度传感器",
-        "attributesPollPeriod": 10000,
+        "attributesPollPeriod": 57000,
         "timeseriesPollPeriod": 50000,
         "sendDataOnlyOnChange": false,
         "attributes": [
@@ -35,7 +35,7 @@
       {
         "unitId": 2,
         "deviceName": "ADAM4150",
-        "attributesPollPeriod": 10000,
+        "attributesPollPeriod": 60000,
         "timeseriesPollPeriod": 10000,
         "sendDataOnlyOnChange": false,
         "rpc": [
@@ -52,6 +52,31 @@
             "functionCode": 5,
             "objectsCount": 1,
             "address": 21
+          }
+        ]
+      },
+      {
+        "unitId": 3,
+        "deviceName": "outside温度传感器",
+        "attributesPollPeriod": 63000,
+        "timeseriesPollPeriod": 50000,
+        "sendDataOnlyOnChange": false,
+        "attributes": [
+          {
+            "tag": "温度值",
+            "type": "16int",
+            "byteOrder": "BIG",
+            "functionCode": 3,
+            "registerCount": 1,
+            "address": 1
+          },
+          {
+            "tag": "湿度值",
+            "type": "16int",
+            "byteOrder": "BIG",
+            "functionCode": 3,
+            "registerCount": 1,
+            "address": 0
           }
         ]
       }
